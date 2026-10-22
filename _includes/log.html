@@ -1,0 +1,10 @@
+{%- comment -%} Takes a list of posts (newest first), prints it grouped by year {%- endcomment -%}
+{% assign years = include.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+{% for year in years %}
+<section class="year" aria-labelledby="y{{ year.name }}">
+  <h2 class="year-label" id="y{{ year.name }}">{{ year.name }}</h2>
+  <ol class="log">
+    {% for p in year.items %}{% include post-row.html post=p %}{% endfor %}
+  </ol>
+</section>
+{% endfor %}

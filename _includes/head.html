@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{% if page.url == "/" %}{{ site.title | escape }}{% else %}{{ page.title | escape }} | {{ site.title | escape }}{% endif %}</title>
+{%- assign desc = site.description -%}
+{%- if page.layout == "post" or page.layout == "page" -%}
+  {%- if page.description and page.description != "" -%}{%- assign desc = page.description -%}
+  {%- else -%}{%- assign desc = page.excerpt | default: page.content | strip_html | normalize_whitespace | strip | truncate: 160 -%}{%- endif -%}
+{%- endif %}
+<meta name="description" content="{{ desc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="alternate" type="application/rss+xml" href="{{ "/index.xml" | absolute_url }}" title="{{ site.title | escape }}">
+{%- comment -%} CSS is inlined: one request per page, nothing extra for the Pi to serve {%- endcomment -%}
+{%- capture css -%}{% include main.css %}{%- endcapture %}
+<style>{{ css | cssmin }}</style>

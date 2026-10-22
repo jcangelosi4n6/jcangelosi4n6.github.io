@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article>
+  <header class="post-head">
+    <h1>{{ page.title }}</h1>
+    {% assign author = page.author | default: site.author %}
+    {% if author or site.listenbrainz %}
+    <div class="byline">
+      {% if author %}<p class="byline-author">By {{ author }}</p>{% endif %}
+      {% include nowplaying.html %}
+    </div>
+    {% endif %}
+    <dl class="meta">
+      <div><dt>Filed</dt><dd><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%-d %B %Y" }}</time></dd></div>
+      {% assign revised = page.lastmod | default: page.last_modified_at %}
+      {% if revised %}{% assign r = revised | date: "%Y-%m-%d" %}{% assign d = page.date | date: "%Y-%m-%d" %}{% if r != d %}
+      <div><dt>Revised</dt><dd><time datetime="{{ r }}">{{ revised | date: "%-d %B %Y" }}</time></dd></div>
+      {% endif %}{% endif %}
+      <div><dt>Case ID</dt><dd><code>{% include case-id.html post=page %}</code></dd></div>
+      {% assign minutes = content | number_of_words | plus: 212 | divided_by: 213 %}
+      <div><dt>Reading time</dt><dd>{{ minutes }} min</dd></div>
+      {% if page.tags.size > 0 %}<div><dt>Tags</dt><dd>{% for t in page.tags %}<a href="{{ t | slugify | prepend: "/tags/" | append: "/" | relative_url }}">#{{ t }}</a> {% endfor %}</dd></div>{% endif %}
+    </dl>
+  </header>
+
+  {% if page.toc %}{% assign toc = content | toc %}{% if toc != "" %}
+  <details class="toc"><summary>Contents</summary>{{ toc }}</details>
+  {% endif %}{% endif %}
+
+  <div class="prose">{{ content }}</div>
+</article>
+
+<nav class="pager" aria-label="More posts">
+  {% if page.next %}<a class="pager-newer" href="{{ page.next.url | relative_url }}"><span>Newer</span>{{ page.next.title }}</a>{% endif %}
+  {% if page.previous %}<a class="pager-older" href="{{ page.previous.url | relative_url }}"><span>Older</span>{{ page.previous.title }}</a>{% endif %}
+</nav>

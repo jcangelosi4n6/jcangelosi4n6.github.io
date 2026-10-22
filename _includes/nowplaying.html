@@ -1,0 +1,9 @@
+{%- comment -%} Renders only when listenbrainz.username is set. Hidden until the script fills it in. {%- endcomment -%}
+{%- assign lb = site.listenbrainz -%}
+{%- if lb and lb.username -%}
+<p class="np" hidden data-user="{{ lb.username | escape }}" data-mode="{{ lb.mode | default: "recent" }}" data-max-age="{{ lb.max_age_hours | default: 24 }}">
+  <span class="np-label"></span>
+  <a class="np-track" href="https://listenbrainz.org/user/{{ lb.username | uri_escape }}/" rel="noopener"></a>
+</p>
+<script>{% include nowplaying.js %}</script>
+{%- endif -%}

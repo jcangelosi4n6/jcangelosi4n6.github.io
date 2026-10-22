@@ -1,0 +1,39 @@
+title: adbof
+description: Another Dang Blog on Forensics
+author: James Cangelosi
+lang: en
+url: "http://jcangelosi4n6.github.io"
+baseurl: ""
+
+show_descriptions: true          # one-line summary under each title on the index
+footer: "Built with [Jekyll](https://jekyllrb.com)."
+
+# "Now playing" under the byline on each post. Delete this block to turn it off.
+listenbrainz:
+  username: jcangelosi4n6
+  mode: recent                   # "now" = only while something is playing; "recent" = fall back to last played
+  max_age_hours: 24              # in "recent" mode, hide anything older than this
+
+menu:
+  - name: Tags
+    url: /tags/
+  - name: About
+    url: /about/
+
+# Same URLs as the Hugo version: /posts/<slug>/ and /tags/<tag>/
+permalink: /posts/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge      # colours come from the theme CSS, including dark mode
+
+exclude:
+  - README.md
+  - LICENSE
+  - post-template.md
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }

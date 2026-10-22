@@ -1,0 +1,2 @@
+{%- comment -%} Short evidence-style ID: first 8 hex chars of SHA-256 of the post path. Override with `case_id` in front matter. {%- endcomment -%}
+{%- if include.post.case_id -%}{{ include.post.case_id }}{%- else -%}{{ include.post.url | relative_url | sha256 | slice: 0, 8 }}{%- endif -%}

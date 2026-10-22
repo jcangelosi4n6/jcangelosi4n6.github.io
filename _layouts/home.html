@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% if site.description %}<p class="intro">{{ site.description }}</p>{% endif %}
+{% assign extra = content | strip %}{% if extra != "" %}<div class="prose intro-extra">{{ content }}</div>{% endif %}
+
+{% assign pages = site.posts %}
+{% if pages.size > 0 %}
+<div class="index-head">
+  <p>{{ pages.size }} {% if pages.size == 1 %}post{% else %}posts{% endif %}, newest first. Every post is on this page, so your browser's find (Ctrl+F) works as search.</p>
+  {% assign tags = site.tags | casefile_tags %}
+  {% if tags.size > 0 %}
+  <nav class="tagstrip" aria-label="Tags">
+    {% for t in tags %}<a href="{{ t.name | slugify | prepend: "/tags/" | append: "/" | relative_url }}">#{{ t.name }} <span>{{ t.count }}</span></a>{% endfor %}
+  </nav>
+  {% endif %}
+</div>
+{% include log.html posts=pages %}
+{% else %}
+<p class="empty">No posts yet. Add one to <code>_posts/</code> named like <code>2026-10-21-my-first-case.md</code>.</p>
+{% endif %}

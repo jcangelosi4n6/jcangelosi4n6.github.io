@@ -1,0 +1,9 @@
+<header class="site-header">
+  {% if page.url == "/" %}<h1 class="site-title">{{ site.title | escape }}</h1>
+  {% else %}<a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>{% endif %}
+  <nav class="site-nav" aria-label="Site">
+    {% unless page.url == "/" %}<a href="{{ "/" | relative_url }}">Index</a>{% endunless %}
+    {% for item in site.menu %}<a href="{{ item.url | relative_url }}">{{ item.name }}</a>{% endfor %}
+    <a href="{{ "/index.xml" | relative_url }}">RSS</a>
+  </nav>
+</header>
