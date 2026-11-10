@@ -1,0 +1,9 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {% seo %}
+  {% feed_meta %}
+  {%- assign style_name = site.style | default: 'style' -%}
+  <link rel="stylesheet" href="{{ '/assets/css/' | append: style_name | append: '.css' | relative_url }}">
+</head>

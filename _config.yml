@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------
+# Site settings — edit these
+# ---------------------------------------------------------------
+title: DFIR Notes
+description: Notes, write-ups and tooling from the digital forensics trenches.
+author: Your Name
+url: "https://adbof.com"   # custom domain (also set in the CNAME file), no trailing slash
+baseurl: ""                          # "" for USERNAME.github.io, "/repo-name" for a project site
+lang: en
+
+# Look of the site (file name in assets/css, without .css)
+style: lab-console   # also: style | terminal | casefile | lab | lab-prompt
+
+# Header nav links (posts are always listed on the home page)
+nav:
+  - title: About
+    url: /about/
+  - title: RSS
+    url: /feed.xml
+
+# Social links shown in the footer (leave blank to hide)
+social:
+  github: ""        # e.g. your-github-username
+  mastodon: ""      # full URL, e.g. https://infosec.exchange/@you
+  email: ""
+
+# ---------------------------------------------------------------
+# ListenBrainz "now playing"
+# ---------------------------------------------------------------
+listenbrainz:
+  username: ""      # your ListenBrainz username; leave blank to hide the widget
+  refresh: 60       # seconds between checks (keep >= 30 to be polite to the API)
+
+# ---------------------------------------------------------------
+# Build settings (GitHub Pages compatible)
+# ---------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

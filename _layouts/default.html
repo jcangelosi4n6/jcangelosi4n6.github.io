@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+{% include head.html %}
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        <span class="prompt" aria-hidden="true">$</span> {{ site.title }}
+      </a>
+      {% if site.nav %}
+      <nav class="site-nav" aria-label="Main">
+        {% for item in site.nav %}
+          <a href="{{ item.url | relative_url }}"
+             {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+      {% endif %}
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      {% include nowplaying.html %}
+      <div class="footer-meta">
+        <span>&copy; {{ site.time | date: '%Y' }} {{ site.author }}</span>
+        {% if site.social.github != "" and site.social.github %}
+          <a href="https://github.com/{{ site.social.github }}">GitHub</a>
+        {% endif %}
+        {% if site.social.mastodon != "" and site.social.mastodon %}
+          <a rel="me" href="{{ site.social.mastodon }}">Mastodon</a>
+        {% endif %}
+        {% if site.social.email != "" and site.social.email %}
+          <a href="mailto:{{ site.social.email }}">Email</a>
+        {% endif %}
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
