@@ -15,6 +15,10 @@ style: lab-console   # also: style | terminal | casefile | lab | lab-prompt
 nav:
   - title: About
     url: /about/
+  - title: CV
+    url: /CV/
+  - title: Classes
+    url: /Classes/
   - title: RSS
     url: /feed.xml
 
