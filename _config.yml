@@ -20,7 +20,7 @@ nav:
 
 # Social links shown in the footer (leave blank to hide)
 social:
-  github: "https://github.com/jcangelosi4n6"        # e.g. your-github-username
+  github: "jcangelosi4n6"        # e.g. your-github-username
   mastodon: ""      # full URL, e.g. https://infosec.exchange/@you
   email: "jcangelosi4n6@gmail.com"
 
