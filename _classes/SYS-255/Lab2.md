@@ -1,6 +1,6 @@
 ---
 title: Lab 02 | DNS + ADDS Role
-date: 2026-09-05
+date: 2026-09-06
 tags: [dns, active directory]
 ---
 
