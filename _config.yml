@@ -1,9 +1,9 @@
 # ---------------------------------------------------------------
 # Site settings — edit these
 # ---------------------------------------------------------------
-title: DFIR Notes
+title: ADBOF.com
 description: Notes, write-ups and tooling from the digital forensics trenches.
-author: Your Name
+author: James Cangelosi
 url: "https://adbof.com"   # custom domain (also set in the CNAME file), no trailing slash
 baseurl: ""                          # "" for USERNAME.github.io, "/repo-name" for a project site
 lang: en
@@ -20,15 +20,15 @@ nav:
 
 # Social links shown in the footer (leave blank to hide)
 social:
-  github: ""        # e.g. your-github-username
+  github: "https://github.com/jcangelosi4n6"        # e.g. your-github-username
   mastodon: ""      # full URL, e.g. https://infosec.exchange/@you
-  email: ""
+  email: "jcangelosi4n6@gmail.com"
 
 # ---------------------------------------------------------------
 # ListenBrainz "now playing"
 # ---------------------------------------------------------------
 listenbrainz:
-  username: ""      # your ListenBrainz username; leave blank to hide the widget
+  username: "jcangelosi4n6"      # your ListenBrainz username; leave blank to hide the widget
   refresh: 60       # seconds between checks (keep >= 30 to be polite to the API)
 
 # ---------------------------------------------------------------
