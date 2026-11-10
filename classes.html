@@ -1,0 +1,21 @@
+---
+layout: page
+title: Classes
+permalink: /classes/
+---
+{% assign entries = site.classes | sort: 'date' | reverse %}
+{% assign by_class = entries | group_by: 'class' %}
+
+{% for group in by_class %}
+<div class="year-group">
+  <h3 class="year">{{ group.name }}</h3>
+  <ul class="post-list">
+    {% for entry in group.items %}
+    <li>
+      <div><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></div>
+      <time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: '%b %d' }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
