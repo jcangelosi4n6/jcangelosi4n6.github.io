@@ -1,3 +1,9 @@
+---
+title: Lab 01 | Environment Setup
+date: 2026-08-30
+tags: [virtualization, networking]
+---
+
 # Lab 01 | Environment Setup.md
 To network all of our VMs together on Proxmox, we need to set up our environment and establish a connection.  
 
