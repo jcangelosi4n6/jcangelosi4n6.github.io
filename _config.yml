@@ -18,9 +18,25 @@ nav:
   - title: CV
     url: /CV/
   - title: Classes
-    url: /Classes/
+    url: /classes/
   - title: RSS
     url: /feed.xml
+
+# Collections of classes
+collections:
+  classes:
+    output: true
+    permalink: /classes/:path/
+
+defaults:
+  - scope:
+      path: "_classes"
+    values:
+      layout: post
+  - scope:
+      path: "_classes/SYS-255"
+    values:
+      class: "SYS-255 - System Administration"
 
 # Social links shown in the footer (leave blank to hide)
 social:
